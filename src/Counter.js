@@ -1,14 +1,21 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 
-function Counter() {
-  const [count, setCount] = useState(0);
+function mapStateToProps(state) {
+  return {
+    count: state.count
+  }
+}
+
+function Counter(props) {
+  // const [count, setCount] = useState(0);
 
   const increment = () => {
-    setCount(count + 1);
+    /* TO DO */
   };
 
   const decrement = () => {
-    setCount(count - 1);
+    /* TO DO */
   };
 
   return (
@@ -16,11 +23,11 @@ function Counter() {
       <h2>Counter</h2>
       <div>
         <button onClick={decrement}>-</button>
-        <span>{count}</span>
+        <span>{props.count}</span>
         <button onClick={increment}>+</button>
       </div>
     </div>
   );
 }
 
-export default Counter;
+export default connect(mapStateToProps)(Counter);
