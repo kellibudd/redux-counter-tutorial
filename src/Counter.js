@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
 function mapStateToProps(state) {
@@ -8,14 +8,17 @@ function mapStateToProps(state) {
 }
 
 function Counter(props) {
-  // const [count, setCount] = useState(0);
 
   const increment = () => {
-    /* TO DO */
+    props.dispatch({ type: "INCREMENT"});
   };
 
   const decrement = () => {
-    /* TO DO */
+    props.dispatch({ type: "DECREMENT"});
+  };
+
+  const reset = () => {
+    props.dispatch({type: 'RESET'});
   };
 
   return (
@@ -26,6 +29,7 @@ function Counter(props) {
         <span>{props.count}</span>
         <button onClick={increment}>+</button>
       </div>
+      <button onClick={reset}>reset</button>
     </div>
   );
 }

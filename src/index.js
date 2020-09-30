@@ -36,7 +36,6 @@ store.dispatch({ type: "INCREMENT"});
 store.dispatch({ type: "DECREMENT"});
 store.dispatch({ type: "RESET"});
 
-console.log('store')
 const App = () => (
   <Provider store={store}>
     <Counter />
