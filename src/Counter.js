@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { increment, decrement, reset } from './actions';
 
 function mapStateToProps(state) {
   return {
@@ -10,15 +11,15 @@ function mapStateToProps(state) {
 function Counter(props) {
 
   const increment = () => {
-    props.dispatch({ type: "INCREMENT"});
+    props.increment();
   };
 
   const decrement = () => {
-    props.dispatch({ type: "DECREMENT"});
+    props.decrement();
   };
 
   const reset = () => {
-    props.dispatch({type: 'RESET'});
+    props.reset();
   };
 
   return (
@@ -34,4 +35,12 @@ function Counter(props) {
   );
 }
 
-export default connect(mapStateToProps)(Counter);
+const mapDispatchToProps = {
+  increment,
+  decrement,
+  reset
+};
+
+console.log(mapDispatchToProps)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
